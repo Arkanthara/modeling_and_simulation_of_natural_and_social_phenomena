@@ -1,0 +1,499 @@
+# Modeling and Simulation of Natural and Social Phenomena
+## 14X015 – Spring 2026
+
+**Prof. Roland Bouffanais**  
+**Dr. Jean-Luc Falcone**  
+**Prof. Jonas Lätt**
+
+---
+
+## Informations Pratiques
+
+- **Cours :** R. Bouffanais, J. Lätt, J.-L. Falcone – Battelle 404-407, vendredi 12h15–14h00  
+- **Assistants :** Francesca Zucchelli & Maxime Rambosson  
+- **Travaux pratiques :** vendredi 14h15–16h00, Battelle 404-407  
+- **Examen :** oral sans documents, 20 min de préparation + 20 min d’interrogation  
+- **TP :** 70% de présence obligatoire pour être admis à l’examen  
+    - Pour les non-biologistes : les TP rapportent un bonus à l’oral  
+    - Pour les biologistes : les TP sont évalués et donnent une note séparée  
+- **Matériel de cours :** slides, slides annotées, articles, MOOC
+
+---
+
+## Plan du Cours
+
+1. Introduction & concepts introductifs  
+2. Systèmes dynamiques et équations différentielles  
+3. Automates cellulaires  
+4. Modèles de Boltzmann sur réseau  
+5. Systèmes multi-agents  
+6. Méthodes de Monte-Carlo  
+7. Simulations à événements discrets  
+8. Réseaux complexes  
+9. Modélisation de systèmes sociaux  
+
+*Théorie, exemples, méthodes et implémentations en Python*
+
+---
+
+# Chapitre 1 : Concepts de Modélisation, Exemples et Définitions
+
+## La pomme de Magritte
+
+> *"Ceci n'est pas une pomme."*
+
+Une image de pomme n’est pas une pomme.  
+**Un modèle n’est jamais la réalité, seulement une représentation.**
+
+---
+
+## Qu’est-ce qu’un Modèle ?
+
+Il existe de nombreuses définitions coexistantes :
+
+- Abstraction simplifiée de la réalité, permettant de mieux la comprendre  
+- Une *caricature* de la réalité : on ne garde que ce qui semble nécessaire pour l’étude d’un phénomène  
+- Pour certains, un simple ajustement de données (*data fit*) est un modèle  
+
+On parle ainsi de :
+- Modèles animaux  
+- Modèles statistiques  
+- Modèles de données  
+
+---
+
+### Pour nous, un Modèle Signifie :
+
+- Une représentation d’un phénomène avec un **langage mathématique** ou **informatique**  
+- Une description théorique qui se prête à une **implémentation computationnelle**  
+- Un modèle doit **explicitement reproduire le phénomène** et en révéler les causes  
+
+> Ce qui nous intéresse au premier chef, c’est l’idée d’un **"jumeau numérique"** (*digital twin*) :  
+> reproduire numériquement (dans un ordinateur) un phénomène réel,  
+> permettant ainsi de puissantes **expériences in silico**.
+
+**Modélisation → Simulations**
+
+---
+
+## Pourquoi un Modèle ?
+
+- **Décrire**  
+- **Classifier**  
+- Et plus important encore :  
+    - **Comprendre**  
+    - **Prédire**  
+    - Éventuellement **contrôler** un phénomène  
+
+---
+
+## Qu’est-ce qui fait un Bon Modèle ?
+
+La question est **dépendante du problème** ou de la question posée.
+
+Plusieurs modèles peuvent être nécessaires pour représenter différentes facettes d’un même phénomène.
+
+> *"Everything should be made as simple as possible, but not simpler."*  
+> – Albert Einstein
+
+Un bon modèle doit être :
+
+- Descriptif, mais surtout **prédictif**  
+- Généralisable ou adaptable à de nouvelles situations  
+- Fondé sur des principes premiers  
+
+---
+
+### Une autre perspective
+
+> *"Le simple est toujours faux. Ce qui ne l’est pas est inutilisable."*  
+> – Paul Valéry
+
+Un modèle, bien qu’incorrect, permet un processus d’enquête générant des questions significatives sur le système étudié.  
+En se concentrant sur la formalisation des processus et interactions, il suggère de nouvelles expériences et augmente ainsi la compréhension.
+
+> *"What I cannot create, I do not understand."*  
+> – Richard Feynman
+
+---
+
+## Fidélité d’un Modèle
+
+Un même système existe à différentes échelles.  
+La méthode employée dépend de l’échelle considérée :
+
+- Atomes, molécules  
+- Éléments de fluide, champs de pression  
+- Cellules climatiques  
+- Tissus, organes, organismes vivants  
+- Composants mécaniques, voitures, trafic  
+
+Il est essentiel d’**identifier les ingrédients importants et leurs interactions**.  
+Souvent, un modèle est construit à une échelle plus fine que celle de la question posée.
+
+---
+
+## Espace et Temps
+
+Nous nous intéressons généralement à des **phénomènes dynamiques** avec une **extension spatiale** :
+
+- Espace 1D, 2D, 3D ou **graphe** (réseau)
+
+**Approches spatiales :**
+
+- **Eulérienne** : on reste fixe dans l’espace (ex : pression, température)  
+- **Lagrangienne** : on suit les particules dans leur mouvement (ex : trajectoire d’un avion)  
+
+**Traitement du temps :**
+
+- Temps "continu", discrétisé avec un pas de temps $\Delta t$  
+- Temps "discontinu", sautant d’événement en événement (*discrete events*)
+
+---
+
+## Au-delà de l’Espace Physique : Réseaux Complexes
+
+Exemple : modèle de propagation d’opinion dans un réseau social  
+
+*(schéma conceptuel d’un réseau avec nœuds et liens)*
+
+---
+
+## Multiples Modèles / Langages de Description
+
+Différents langages pour décrire un même phénomène.  
+Exemple avec un fluide :
+
+$$ \partial_{t}\mathbf{u} + (\mathbf{u}\cdot \nabla)\mathbf{u} = -\frac{1}{\rho}\nabla p + \nu \nabla^{2}\mathbf{u} $$
+
+Phénomène → Équation aux dérivées partielles → Discrétisation → Solution numérique
+
+---
+
+## Vers des Modèles Virtuels de la Réalité
+
+Nous considérons un **univers discret** comme abstraction du monde réel.
+
+À une échelle dite **mésoscopique**, on définit des règles décrivant le phénomène.
+
+D’autres approches existent pour modéliser un système de particules :
+- Dynamique moléculaire (MD)
+- SPH (*Smoothed Particle Hydrodynamics*)
+- DSMC (*Direct Simulation Monte Carlo*)
+- Rotations stochastiques
+- DPD (*Dissipative Particle Dynamics*)
+
+---
+
+## Que Pouvons-Nous Modéliser ?
+
+**Phénomènes naturels :**
+- Écoulements fluides, fracture d’un objet, météo, climatologie
+
+**Environnement :**
+- Panache volcanique, convertisseur d’énergie houlomotrice
+
+**Chimie, biologie :**
+- Motifs animaux, systèmes biologiques, croissance tissulaire
+
+**Phénomènes sociaux :**
+- Trafic, mouvements de foule, formation d’opinion
+
+**Écosystèmes :**
+- Contrôle des pucerons, équilibre forêt-savane, comportement des fourmis (formation de cimetières)
+
+**Marchés financiers et économiques**
+
+**Organes et phénomènes biomédicaux**
+
+---
+
+## La Modélisation est une Démarche Interdisciplinaire
+
+Elle combine des compétences en :
+
+- Mathématiques  
+- Informatique  
+- Physique  
+- Biologie  
+- Économie  
+
+> L’un des défis majeurs est **l’intégration** plutôt que la **spécialisation**.  
+> Les problèmes du monde réel ne se conforment pas toujours aux divisions disciplinaires imposées par le système académique.
+
+---
+
+# Simulations : Du Laptop au Calcul Haute Performance
+
+## Calcul Intensif
+
+Certains calculs requièrent des ressources exceptionnelles :
+
+- Contraintes de temps  
+- Contraintes de mémoire  
+
+**Le HPC (*High-Performance Computing*)** :  
+entre 100 et 1 million de cœurs collaborant pour résoudre un même problème.
+
+---
+
+### Exemple : Calcul Massivement Parallèle sur 16 384 CPUs
+
+Anévrisme segmenté avec 900 millions de nœuds fluides.
+
+La géométrie de l’anévrisme est couverte par 65 336 volumes cubiques réguliers de taille $25^3$.
+
+---
+
+# Les Systèmes de Lindenmayer (L-systèmes)
+
+Introduits en 1968 par **Aristid Lindenmayer** pour modéliser la croissance des plantes et d’autres organismes.
+
+- Accent mis sur les aspects visuels  
+- Systèmes dynamiques discrets, basés sur des règles  
+- Génération de structures complexes par **réécriture parallèle de symboles**
+
+---
+
+### Règles de Production : Un Exemple
+
+Soit les symboles : $a, b, c, d, k$
+
+Règles :
+- $a \rightarrow cbc$
+- $b \rightarrow dad$
+- $c \rightarrow k$
+- $d \rightarrow a$
+- $k \rightarrow k$
+
+| Génération | Objet produit |
+|:---:|:---|
+| 1 | $a$ |
+| 2 | $cbc$ |
+| 3 | $kdadk$ |
+| 4 | $kacbcak$ |
+| 5 | $kcbckdadkcbcbc$ |
+| 6 | $kkdadkkacbcakkdadkk$ |
+
+La structure croît de manière récursive et présente souvent une **auto-similarité**, caractéristique des **fractales**.
+
+---
+
+### Mouvements (Turtle Graphics)
+
+Pour obtenir des structures spatiales, les symboles sont interprétés graphiquement (tortue logistique) :
+
+L’état est défini par $(x, y, \alpha)$ où :
+- $(x, y)$ : position  
+- $\alpha$ : direction (angle)
+
+**Commandes :**
+
+- **F** : Avancer d’un pas $d$  
+    - Nouvel état : $(x', y', \alpha)$ avec  
+        $x' = x + d \cos \alpha$  
+        $y' = y + d \sin \alpha$  
+    - Tracer un segment entre $(x,y)$ et $(x',y')$  
+
+- **+** : Tourner à gauche d’un angle $\beta$  
+    - Nouvel état : $(x, y, \alpha + \beta)$  
+
+- **-** : Tourner à droite d’un angle $\beta$  
+    - Nouvel état : $(x, y, \alpha - \beta)$  
+
+- **[** : Sauvegarder l’état courant (*PUSH*)  
+
+- **]** : Restaurer le dernier état sauvegardé (*POP*)  
+
+- **X** : Aucun dessin, mais utile pour construire des règles complexes  
+
+---
+
+### Exemple de Croissance
+
+Règle : $F \to F[+F]F[-F]F$, avec $\beta = 25^\circ$
+
+Application répétée génère une structure arborescente complexe.
+
+---
+
+# Exemples de Modélisation
+
+## Thrombose dans les Anévrismes Cérébraux
+
+**Problème :** prédire la formation de caillots dans des anévrismes géants.
+
+- Un stent réduit l’écoulement sanguin dans l’anévrisme  
+- La coagulation est induite dans l’anévrisme  
+
+**Approches de modélisation :**
+
+1. **Sang "fully resolved"** :  
+   - Globules rouges 3D modélisés explicitement  
+   - Calcul extrêmement coûteux  
+
+2. **Simulation simplifiée** :  
+   - Fluide newtonien avec particules ponctuelles en suspension  
+
+**Résultat clé :**  
+Les simulations montrent qu’un **seuil** sur le *taux de cisaillement pariétal* moyen (*Wall Shear Rate*, WSR) permet de prédire la thrombose :
+
+> Si la valeur moyenne du WSR est inférieure à $30\ s^{-1}$, le thrombus se forme.
+
+---
+
+### Modèle basé sur des règles (sans équations)
+
+- Faible cisaillement → dysfonctionnement de l’endothélium  
+- Émission de molécules pro-coagulantes (*Tissue Factor* → Thrombiné)  
+- Si ces molécules sont suffisamment nombreuses, transformation du fibrinogène en fibrine  
+- Début du thrombus  
+- Croissance tant que le cisaillement reste faible  
+- La région fluide se réduit, modifiant les conditions d’écoulement  
+
+---
+
+### Simulation explicite des particules sanguines
+
+- Particules en région de faible cisaillement → adhésion et agrégation (formation du caillot)  
+- Particules en région de fort cisaillement → circulent librement  
+
+---
+
+### Validation qualitative
+
+Comme observé dans les anévrismes géants, la simulation montre :
+
+- Thrombose partielle ou totale de l’anévrisme  
+- Occlusion de l’artère parente  
+- Seuil sur le *rapport d’aspect*  
+- Structure en "pelure d’oignon"  
+
+---
+
+## Simulation du Rhône : Transport de Sédiments
+
+**Objectif :** Étudier la possibilité de prédire le transport de sédiments dans le Rhône.
+
+Collaboration avec les SIG (Services Industriels de Genève) + projet européen MAPPER.
+
+**Modèles globaux et locaux :**
+
+- **Modèle global :** 90 s d’écoulement, résolution 50 cm, 12 km de long, $Re=10^6$  
+    - Nécessite 1 h de calcul sur 120 cœurs  
+
+- **Modèle local (surface libre) :** 60 s d’écoulement, résolution 20 cm, 200 m de long  
+    - 1 h de calcul sur 120 cœurs  
+
+Phénomènes simulés : vidange, remplissage, érosion
+
+---
+
+## Modèles de Tissus Épithéliaux
+
+Les cellules sont représentées par des polygones (modèles dits *vertex models*).
+
+**Énergie du tissu :**
+
+$$ E = \frac{1}{2}\sum_{\alpha} K_{\alpha}(A_{\alpha} - A_{\alpha}^{0}) + \frac{1}{2}\sum_{\alpha}\Gamma_{\alpha}L_{\alpha} + \sum \Lambda_{ij}\ell_{ij} $$
+
+- $A_{\alpha}$ : aire de la cellule $\alpha$  
+- $A_{\alpha}^{0}$ : aire cible  
+- $L_{\alpha}$ : périmètre  
+- $\ell_{ij}$ : longueur du joint entre cellules $i$ et $j$  
+- $K_{\alpha}, \Gamma_{\alpha}, \Lambda_{ij}$ : paramètres mécaniques
+
+---
+
+### Phénomènes simulés
+
+- **Division cellulaire** → croissance tissulaire  
+- **Mouvement cellulaire** sous l’effet d’une force extérieure  
+- **Croissance d’une interface cellulaire**  
+- **Compétition cellulaire**  
+- **Formes anormales** (ex : souris épineuse, *acomys*) où la papille dermique évolue en forme non circulaire  
+
+---
+
+### Validation expérimentale
+
+Comparaison entre simulations et expériences sur l’apparition d’instabilités dans la croissance tissulaire.
+
+---
+
+## Lutte Biologique : Pucerons, Guêpes et Concombres
+
+**Travail de J. Cox (UNIGE) en collaboration avec la station agronomique de Changins (1997)**
+
+**Objectif :** Modéliser un système de lutte biologique sous serre.
+
+**Composantes :**
+- Plantes : concombres  
+- Ravageurs : pucerons  
+- Auxiliaires : guêpes parasitoïdes  
+
+---
+
+### Principes de la modélisation
+
+- Représentation de chaque **point d’espace** et des entités qui s’y trouvent  
+- Chaque **individu** est représenté explicitement  
+- Règles de comportement **probabilistes** permettant d’obtenir moyenne et écart-type  
+
+**Paramètres pris en compte :**
+- Taux de croissance des concombres  
+- Taux de reproduction des pucerons/guêpes  
+- Âges de reproduction, temps de gestation  
+- Pucerons parasités (= momies) pondent moins ou pas du tout  
+- Guêpes ne pondent pas dans un puceron déjà parasité  
+- Larves de guêpes n’éclosent pas si le puceron est trop âgé  
+- Mouvement des insectes (ailés si surpopulation), taux d’entrée dans la serre  
+- Effets de la température sur le développement  
+
+---
+
+### Questions opérationnelles
+
+- "Mode de production" des guêpes : plantes banques ou lâchers ?  
+- Périodes de lâcher (une ou plusieurs) ?  
+- Quantités à lâcher ?  
+- Pourcentage de feuilles de concombre attaquées à la récolte  
+- Évolution du nombre de pucerons/guêpes au fil des semaines  
+
+---
+
+### Résultats des simulations (1)
+
+Évolution temporelle des populations :
+
+- Taux d’occupation des feuilles par les pucerons (%)  
+- Taux d’occupation des feuilles par les momies (%)  
+- Nombre de pucerons  
+- Nombre de guêpes  
+- Nombre de momies  
+
+---
+
+### Résultats des simulations (2)
+
+Comparaison de deux méthodes de comptage des pucerons :
+
+- Nombre total de pucerons (simulation)  
+- Nombre de pucerons déduit du nombre de feuilles parasitées (méthode terrain)  
+
+---
+
+### Résultats (3) : Paramètre critique
+
+**Taux de ponte des pucerons**
+
+La simulation montre qu’il est essentiel de bien connaître ce paramètre, car il détermine le niveau de dégâts à la récolte.
+
+---
+
+### Résultats (4) : Effet critique
+
+**Nombre de guêpes introduites** (10 jours après l’entrée des pucerons)
+
+Il faut lâcher assez de guêpes, mais inutile d’en mettre trop (coût inutile).  
+Un seuil optimal existe.
