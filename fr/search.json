@@ -1,0 +1,242 @@
+[
+  {
+    "objectID": "ch1.html",
+    "href": "ch1.html",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "",
+    "text": "Prof. Roland Bouffanais\nDr. Jean-Luc Falcone\nProf. Jonas Lätt\n\n\n\n\n\nCours : R. Bouffanais, J. Lätt, J.-L. Falcone – Battelle 404-407, vendredi 12h15–14h00\n\nAssistants : Francesca Zucchelli & Maxime Rambosson\n\nTravaux pratiques : vendredi 14h15–16h00, Battelle 404-407\n\nExamen : oral sans documents, 20 min de préparation + 20 min d’interrogation\n\nTP : 70% de présence obligatoire pour être admis à l’examen\n\nPour les non-biologistes : les TP rapportent un bonus à l’oral\n\nPour les biologistes : les TP sont évalués et donnent une note séparée\n\n\nMatériel de cours : slides, slides annotées, articles, MOOC\n\n\n\n\n\n\nIntroduction & concepts introductifs\n\nSystèmes dynamiques et équations différentielles\n\nAutomates cellulaires\n\nModèles de Boltzmann sur réseau\n\nSystèmes multi-agents\n\nMéthodes de Monte-Carlo\n\nSimulations à événements discrets\n\nRéseaux complexes\n\nModélisation de systèmes sociaux\n\nThéorie, exemples, méthodes et implémentations en Python",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#x015-spring-2026",
+    "href": "ch1.html#x015-spring-2026",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "",
+    "text": "Prof. Roland Bouffanais\nDr. Jean-Luc Falcone\nProf. Jonas Lätt",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#informations-pratiques",
+    "href": "ch1.html#informations-pratiques",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "",
+    "text": "Cours : R. Bouffanais, J. Lätt, J.-L. Falcone – Battelle 404-407, vendredi 12h15–14h00\n\nAssistants : Francesca Zucchelli & Maxime Rambosson\n\nTravaux pratiques : vendredi 14h15–16h00, Battelle 404-407\n\nExamen : oral sans documents, 20 min de préparation + 20 min d’interrogation\n\nTP : 70% de présence obligatoire pour être admis à l’examen\n\nPour les non-biologistes : les TP rapportent un bonus à l’oral\n\nPour les biologistes : les TP sont évalués et donnent une note séparée\n\n\nMatériel de cours : slides, slides annotées, articles, MOOC",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#plan-du-cours",
+    "href": "ch1.html#plan-du-cours",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "",
+    "text": "Introduction & concepts introductifs\n\nSystèmes dynamiques et équations différentielles\n\nAutomates cellulaires\n\nModèles de Boltzmann sur réseau\n\nSystèmes multi-agents\n\nMéthodes de Monte-Carlo\n\nSimulations à événements discrets\n\nRéseaux complexes\n\nModélisation de systèmes sociaux\n\nThéorie, exemples, méthodes et implémentations en Python",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#la-pomme-de-magritte",
+    "href": "ch1.html#la-pomme-de-magritte",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "La pomme de Magritte",
+    "text": "La pomme de Magritte\n\n“Ceci n’est pas une pomme.”\n\nUne image de pomme n’est pas une pomme.\nUn modèle n’est jamais la réalité, seulement une représentation.",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#quest-ce-quun-modèle",
+    "href": "ch1.html#quest-ce-quun-modèle",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "Qu’est-ce qu’un Modèle ?",
+    "text": "Qu’est-ce qu’un Modèle ?\nIl existe de nombreuses définitions coexistantes :\n\nAbstraction simplifiée de la réalité, permettant de mieux la comprendre\n\nUne caricature de la réalité : on ne garde que ce qui semble nécessaire pour l’étude d’un phénomène\n\nPour certains, un simple ajustement de données (data fit) est un modèle\n\nOn parle ainsi de : - Modèles animaux\n- Modèles statistiques\n- Modèles de données\n\n\nPour nous, un Modèle Signifie :\n\nUne représentation d’un phénomène avec un langage mathématique ou informatique\n\nUne description théorique qui se prête à une implémentation computationnelle\n\nUn modèle doit explicitement reproduire le phénomène et en révéler les causes\n\n\nCe qui nous intéresse au premier chef, c’est l’idée d’un “jumeau numérique” (digital twin) :\nreproduire numériquement (dans un ordinateur) un phénomène réel,\npermettant ainsi de puissantes expériences in silico.\n\nModélisation → Simulations",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#pourquoi-un-modèle",
+    "href": "ch1.html#pourquoi-un-modèle",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "Pourquoi un Modèle ?",
+    "text": "Pourquoi un Modèle ?\n\nDécrire\n\nClassifier\n\nEt plus important encore :\n\nComprendre\n\nPrédire\n\nÉventuellement contrôler un phénomène",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#quest-ce-qui-fait-un-bon-modèle",
+    "href": "ch1.html#quest-ce-qui-fait-un-bon-modèle",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "Qu’est-ce qui fait un Bon Modèle ?",
+    "text": "Qu’est-ce qui fait un Bon Modèle ?\nLa question est dépendante du problème ou de la question posée.\nPlusieurs modèles peuvent être nécessaires pour représenter différentes facettes d’un même phénomène.\n\n“Everything should be made as simple as possible, but not simpler.”\n– Albert Einstein\n\nUn bon modèle doit être :\n\nDescriptif, mais surtout prédictif\n\nGénéralisable ou adaptable à de nouvelles situations\n\nFondé sur des principes premiers\n\n\n\nUne autre perspective\n\n“Le simple est toujours faux. Ce qui ne l’est pas est inutilisable.”\n– Paul Valéry\n\nUn modèle, bien qu’incorrect, permet un processus d’enquête générant des questions significatives sur le système étudié.\nEn se concentrant sur la formalisation des processus et interactions, il suggère de nouvelles expériences et augmente ainsi la compréhension.\n\n“What I cannot create, I do not understand.”\n– Richard Feynman",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#fidélité-dun-modèle",
+    "href": "ch1.html#fidélité-dun-modèle",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "Fidélité d’un Modèle",
+    "text": "Fidélité d’un Modèle\nUn même système existe à différentes échelles.\nLa méthode employée dépend de l’échelle considérée :\n\nAtomes, molécules\n\nÉléments de fluide, champs de pression\n\nCellules climatiques\n\nTissus, organes, organismes vivants\n\nComposants mécaniques, voitures, trafic\n\nIl est essentiel d’identifier les ingrédients importants et leurs interactions.\nSouvent, un modèle est construit à une échelle plus fine que celle de la question posée.",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#espace-et-temps",
+    "href": "ch1.html#espace-et-temps",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "Espace et Temps",
+    "text": "Espace et Temps\nNous nous intéressons généralement à des phénomènes dynamiques avec une extension spatiale :\n\nEspace 1D, 2D, 3D ou graphe (réseau)\n\nApproches spatiales :\n\nEulérienne : on reste fixe dans l’espace (ex : pression, température)\n\nLagrangienne : on suit les particules dans leur mouvement (ex : trajectoire d’un avion)\n\nTraitement du temps :\n\nTemps “continu”, discrétisé avec un pas de temps \\(\\Delta t\\)\n\nTemps “discontinu”, sautant d’événement en événement (discrete events)",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#au-delà-de-lespace-physique-réseaux-complexes",
+    "href": "ch1.html#au-delà-de-lespace-physique-réseaux-complexes",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "Au-delà de l’Espace Physique : Réseaux Complexes",
+    "text": "Au-delà de l’Espace Physique : Réseaux Complexes\nExemple : modèle de propagation d’opinion dans un réseau social\n(schéma conceptuel d’un réseau avec nœuds et liens)",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#multiples-modèles-langages-de-description",
+    "href": "ch1.html#multiples-modèles-langages-de-description",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "Multiples Modèles / Langages de Description",
+    "text": "Multiples Modèles / Langages de Description\nDifférents langages pour décrire un même phénomène.\nExemple avec un fluide :\n\\[ \\partial_{t}\\mathbf{u} + (\\mathbf{u}\\cdot \\nabla)\\mathbf{u} = -\\frac{1}{\\rho}\\nabla p + \\nu \\nabla^{2}\\mathbf{u} \\]\nPhénomène → Équation aux dérivées partielles → Discrétisation → Solution numérique",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#vers-des-modèles-virtuels-de-la-réalité",
+    "href": "ch1.html#vers-des-modèles-virtuels-de-la-réalité",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "Vers des Modèles Virtuels de la Réalité",
+    "text": "Vers des Modèles Virtuels de la Réalité\nNous considérons un univers discret comme abstraction du monde réel.\nÀ une échelle dite mésoscopique, on définit des règles décrivant le phénomène.\nD’autres approches existent pour modéliser un système de particules : - Dynamique moléculaire (MD) - SPH (Smoothed Particle Hydrodynamics) - DSMC (Direct Simulation Monte Carlo) - Rotations stochastiques - DPD (Dissipative Particle Dynamics)",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#que-pouvons-nous-modéliser",
+    "href": "ch1.html#que-pouvons-nous-modéliser",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "Que Pouvons-Nous Modéliser ?",
+    "text": "Que Pouvons-Nous Modéliser ?\nPhénomènes naturels : - Écoulements fluides, fracture d’un objet, météo, climatologie\nEnvironnement : - Panache volcanique, convertisseur d’énergie houlomotrice\nChimie, biologie : - Motifs animaux, systèmes biologiques, croissance tissulaire\nPhénomènes sociaux : - Trafic, mouvements de foule, formation d’opinion\nÉcosystèmes : - Contrôle des pucerons, équilibre forêt-savane, comportement des fourmis (formation de cimetières)\nMarchés financiers et économiques\nOrganes et phénomènes biomédicaux",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#la-modélisation-est-une-démarche-interdisciplinaire",
+    "href": "ch1.html#la-modélisation-est-une-démarche-interdisciplinaire",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "La Modélisation est une Démarche Interdisciplinaire",
+    "text": "La Modélisation est une Démarche Interdisciplinaire\nElle combine des compétences en :\n\nMathématiques\n\nInformatique\n\nPhysique\n\nBiologie\n\nÉconomie\n\n\nL’un des défis majeurs est l’intégration plutôt que la spécialisation.\nLes problèmes du monde réel ne se conforment pas toujours aux divisions disciplinaires imposées par le système académique.",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#calcul-intensif",
+    "href": "ch1.html#calcul-intensif",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "Calcul Intensif",
+    "text": "Calcul Intensif\nCertains calculs requièrent des ressources exceptionnelles :\n\nContraintes de temps\n\nContraintes de mémoire\n\nLe HPC (High-Performance Computing) :\nentre 100 et 1 million de cœurs collaborant pour résoudre un même problème.\n\n\nExemple : Calcul Massivement Parallèle sur 16 384 CPUs\nAnévrisme segmenté avec 900 millions de nœuds fluides.\nLa géométrie de l’anévrisme est couverte par 65 336 volumes cubiques réguliers de taille \\(25^3\\).",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#thrombose-dans-les-anévrismes-cérébraux",
+    "href": "ch1.html#thrombose-dans-les-anévrismes-cérébraux",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "Thrombose dans les Anévrismes Cérébraux",
+    "text": "Thrombose dans les Anévrismes Cérébraux\nProblème : prédire la formation de caillots dans des anévrismes géants.\n\nUn stent réduit l’écoulement sanguin dans l’anévrisme\n\nLa coagulation est induite dans l’anévrisme\n\nApproches de modélisation :\n\nSang “fully resolved” :\n\nGlobules rouges 3D modélisés explicitement\n\nCalcul extrêmement coûteux\n\nSimulation simplifiée :\n\nFluide newtonien avec particules ponctuelles en suspension\n\n\nRésultat clé :\nLes simulations montrent qu’un seuil sur le taux de cisaillement pariétal moyen (Wall Shear Rate, WSR) permet de prédire la thrombose :\n\nSi la valeur moyenne du WSR est inférieure à \\(30\\ s^{-1}\\), le thrombus se forme.\n\n\n\nModèle basé sur des règles (sans équations)\n\nFaible cisaillement → dysfonctionnement de l’endothélium\n\nÉmission de molécules pro-coagulantes (Tissue Factor → Thrombiné)\n\nSi ces molécules sont suffisamment nombreuses, transformation du fibrinogène en fibrine\n\nDébut du thrombus\n\nCroissance tant que le cisaillement reste faible\n\nLa région fluide se réduit, modifiant les conditions d’écoulement\n\n\n\n\nSimulation explicite des particules sanguines\n\nParticules en région de faible cisaillement → adhésion et agrégation (formation du caillot)\n\nParticules en région de fort cisaillement → circulent librement\n\n\n\n\nValidation qualitative\nComme observé dans les anévrismes géants, la simulation montre :\n\nThrombose partielle ou totale de l’anévrisme\n\nOcclusion de l’artère parente\n\nSeuil sur le rapport d’aspect\n\nStructure en “pelure d’oignon”",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#simulation-du-rhône-transport-de-sédiments",
+    "href": "ch1.html#simulation-du-rhône-transport-de-sédiments",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "Simulation du Rhône : Transport de Sédiments",
+    "text": "Simulation du Rhône : Transport de Sédiments\nObjectif : Étudier la possibilité de prédire le transport de sédiments dans le Rhône.\nCollaboration avec les SIG (Services Industriels de Genève) + projet européen MAPPER.\nModèles globaux et locaux :\n\nModèle global : 90 s d’écoulement, résolution 50 cm, 12 km de long, \\(Re=10^6\\)\n\nNécessite 1 h de calcul sur 120 cœurs\n\nModèle local (surface libre) : 60 s d’écoulement, résolution 20 cm, 200 m de long\n\n1 h de calcul sur 120 cœurs\n\n\nPhénomènes simulés : vidange, remplissage, érosion",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#modèles-de-tissus-épithéliaux",
+    "href": "ch1.html#modèles-de-tissus-épithéliaux",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "Modèles de Tissus Épithéliaux",
+    "text": "Modèles de Tissus Épithéliaux\nLes cellules sont représentées par des polygones (modèles dits vertex models).\nÉnergie du tissu :\n\\[ E = \\frac{1}{2}\\sum_{\\alpha} K_{\\alpha}(A_{\\alpha} - A_{\\alpha}^{0}) + \\frac{1}{2}\\sum_{\\alpha}\\Gamma_{\\alpha}L_{\\alpha} + \\sum \\Lambda_{ij}\\ell_{ij} \\]\n\n\\(A_{\\alpha}\\) : aire de la cellule \\(\\alpha\\)\n\n\\(A_{\\alpha}^{0}\\) : aire cible\n\n\\(L_{\\alpha}\\) : périmètre\n\n\\(\\ell_{ij}\\) : longueur du joint entre cellules \\(i\\) et \\(j\\)\n\n\\(K_{\\alpha}, \\Gamma_{\\alpha}, \\Lambda_{ij}\\) : paramètres mécaniques\n\n\n\nPhénomènes simulés\n\nDivision cellulaire → croissance tissulaire\n\nMouvement cellulaire sous l’effet d’une force extérieure\n\nCroissance d’une interface cellulaire\n\nCompétition cellulaire\n\nFormes anormales (ex : souris épineuse, acomys) où la papille dermique évolue en forme non circulaire\n\n\n\n\nValidation expérimentale\nComparaison entre simulations et expériences sur l’apparition d’instabilités dans la croissance tissulaire.",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  },
+  {
+    "objectID": "ch1.html#lutte-biologique-pucerons-guêpes-et-concombres",
+    "href": "ch1.html#lutte-biologique-pucerons-guêpes-et-concombres",
+    "title": "Modeling and Simulation of Natural and Social Phenomena",
+    "section": "Lutte Biologique : Pucerons, Guêpes et Concombres",
+    "text": "Lutte Biologique : Pucerons, Guêpes et Concombres\nTravail de J. Cox (UNIGE) en collaboration avec la station agronomique de Changins (1997)\nObjectif : Modéliser un système de lutte biologique sous serre.\nComposantes : - Plantes : concombres\n- Ravageurs : pucerons\n- Auxiliaires : guêpes parasitoïdes\n\n\nPrincipes de la modélisation\n\nReprésentation de chaque point d’espace et des entités qui s’y trouvent\n\nChaque individu est représenté explicitement\n\nRègles de comportement probabilistes permettant d’obtenir moyenne et écart-type\n\nParamètres pris en compte : - Taux de croissance des concombres\n- Taux de reproduction des pucerons/guêpes\n- Âges de reproduction, temps de gestation\n- Pucerons parasités (= momies) pondent moins ou pas du tout\n- Guêpes ne pondent pas dans un puceron déjà parasité\n- Larves de guêpes n’éclosent pas si le puceron est trop âgé\n- Mouvement des insectes (ailés si surpopulation), taux d’entrée dans la serre\n- Effets de la température sur le développement\n\n\n\nQuestions opérationnelles\n\n“Mode de production” des guêpes : plantes banques ou lâchers ?\n\nPériodes de lâcher (une ou plusieurs) ?\n\nQuantités à lâcher ?\n\nPourcentage de feuilles de concombre attaquées à la récolte\n\nÉvolution du nombre de pucerons/guêpes au fil des semaines\n\n\n\n\nRésultats des simulations (1)\nÉvolution temporelle des populations :\n\nTaux d’occupation des feuilles par les pucerons (%)\n\nTaux d’occupation des feuilles par les momies (%)\n\nNombre de pucerons\n\nNombre de guêpes\n\nNombre de momies\n\n\n\n\nRésultats des simulations (2)\nComparaison de deux méthodes de comptage des pucerons :\n\nNombre total de pucerons (simulation)\n\nNombre de pucerons déduit du nombre de feuilles parasitées (méthode terrain)\n\n\n\n\nRésultats (3) : Paramètre critique\nTaux de ponte des pucerons\nLa simulation montre qu’il est essentiel de bien connaître ce paramètre, car il détermine le niveau de dégâts à la récolte.\n\n\n\nRésultats (4) : Effet critique\nNombre de guêpes introduites (10 jours après l’entrée des pucerons)\nIl faut lâcher assez de guêpes, mais inutile d’en mettre trop (coût inutile).\nUn seuil optimal existe.",
+    "crumbs": [
+      "Cours",
+      "Introduction",
+      "Modeling and Simulation of Natural and Social Phenomena"
+    ]
+  }
+]
